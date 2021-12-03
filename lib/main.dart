@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'category_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -37,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('DeliMeals'),
       ),
       body: const Center(
-        child: Text("Naviagation Thems"),
+        child: CategoryScreen(),
       ),
     );
   }
