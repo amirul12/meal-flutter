@@ -1,0 +1,11 @@
+import 'package:flutter/material.dart';
+class CategoryMeal{
+  final String ?id;
+  final String ?title;
+  final Color? color;
+
+  const CategoryMeal({ this.id,   this.title,  this.color});
+
+
+
+}
