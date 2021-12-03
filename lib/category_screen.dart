@@ -6,18 +6,21 @@ class CategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GridView(
-      children: DUMMY_CATEGORIED.map((cateDate) {
-        return CategoryItem(title: cateDate.title, color: cateDate.color);
-      }).toList(),
-      gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-        childAspectRatio: 3/2,
-        crossAxisSpacing: 20,
-        mainAxisExtent: 20
-
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('DeliMeal'),
       ),
-
+      body: GridView(
+        children: DUMMY_CATEGORIED.map((e) {
+          return CategoryItem(title: e.title, color: e.color);
+        }).toList(),
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200,
+          childAspectRatio: 3 / 2,
+          crossAxisSpacing: 20,
+          mainAxisSpacing: 20,
+        ),
+      ),
     );
   }
 }
