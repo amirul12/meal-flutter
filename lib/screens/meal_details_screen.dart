@@ -50,41 +50,52 @@ class MealDetailsScreen extends StatelessWidget {
                 ),
               ),
               buildSelectionTitle(context, "Ingrdients"),
-
-              buildContainer(ListView.builder(
-                  itemCount: selectedMeal.ingredients.length,
-                  itemBuilder: (ctx, index) {
-                    return Card(
-                      margin: EdgeInsets.all(5),
-                      color: Theme.of(context).accentColor,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          selectedMeal.ingredients[index],
-                          style: TextStyle(color: Colors.white),
+              buildContainer(
+                ListView.builder(
+                    itemCount: selectedMeal.ingredients.length,
+                    itemBuilder: (ctx, index) {
+                      return Card(
+                        margin: EdgeInsets.all(5),
+                        color: Theme.of(context).accentColor,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            selectedMeal.ingredients[index],
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
-                      ),
-                    );
-                  }),),
+                      );
+                    }),
+              ),
               buildSelectionTitle(context, "Steps"),
               buildContainer(ListView.builder(
-                itemCount: selectedMeal.steps.length,
-                  itemBuilder: (ctx, index){
-                  return Column(
-                    children: [
-                  ListTile(
-                  leading: CircleAvatar(
-                  child: Text('# ${index + 1}'),
-                    ),
-                    title: Text(selectedMeal.steps[index], style: TextStyle(fontWeight: FontWeight.w400),),
-                    ),
-                      Divider(),
-                    ],
-                  );
-
-              }))
+                  itemCount: selectedMeal.steps.length,
+                  itemBuilder: (ctx, index) {
+                    return Column(
+                      children: [
+                        ListTile(
+                          leading: CircleAvatar(
+                            child: Text('# ${index + 1}'),
+                          ),
+                          title: Text(
+                            selectedMeal.steps[index],
+                            style: TextStyle(fontWeight: FontWeight.w400),
+                          ),
+                        ),
+                        Divider(),
+                      ],
+                    );
+                  }))
             ],
           ),
-        ));
+        ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.delete),
+        onPressed: () {
+          Navigator.of(context).pop(mealId);
+        },
+
+      ),
+    );
   }
 }
