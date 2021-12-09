@@ -33,9 +33,6 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
 
   @override
   void initState() {
-
-
-
     super.initState();
   }
 
@@ -63,8 +60,6 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
 
 
     return Scaffold(
