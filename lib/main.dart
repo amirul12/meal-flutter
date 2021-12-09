@@ -30,7 +30,7 @@ class _MyAppState extends State<MyApp> {
     'vegetarian': false,
   };
 
-  final List<Meal> _availableMeal = DUMMY_MEALS;
+   List<Meal> _availableMeal = DUMMY_MEALS;
 
   void _setFilters(Map<String, bool> filterData) {
 
@@ -43,23 +43,24 @@ class _MyAppState extends State<MyApp> {
       print(filterData['vegan']);
       print(filterData['vegetarian']);
       print('end');
-      _availableMeal.where((meal){
+
+      _availableMeal =  DUMMY_MEALS.where((meal){
 
         print(meal.title);
 
-        // if(_filter['gluten']! && !meal.isGlutenFree){
-        //   print("in gluten");
-        //   return false;
-        // }
-        //
-        // if(_filter['lactose']! && !meal.isLactoseFree){
-        //   print("in lactose");
-        //   return false;
-        // }
-        // if(_filter['vegan']! && !meal.isVegan){
-        //   print("in vegan");
-        //   return false;
-        // }
+        if(_filter['gluten']! && !meal.isGlutenFree){
+          print("in gluten");
+          return false;
+        }
+
+        if(_filter['lactose']! && !meal.isLactoseFree){
+          print("in lactose");
+          return false;
+        }
+        if(_filter['vegan']! && !meal.isVegan){
+          print("in vegan");
+          return false;
+        }
         if(_filter['vegetarian']! && !meal.isVegetarian){
           print("in vegetarian");
           return false;
