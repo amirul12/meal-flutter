@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:meal/dummy_data.dart';
 import 'package:meal/meal.dart';
+import 'package:meal/widgets/main_drawer.dart';
 import 'package:meal/widgets/meal_item.dart';
 
 class CategoryMealScreen extends StatefulWidget {
   static const String routeName = '/category-meal';
 
-  // final String id;
-  // final String title;
 
-  const CategoryMealScreen();
+  final List<Meal> avaibaleList;
+
+   CategoryMealScreen({required this.avaibaleList});
 
   @override
   State<CategoryMealScreen> createState() => _CategoryMealScreenState();
@@ -23,6 +24,8 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
     var loadFirstTime =false;
 
     late List<Meal> displayMeal;
+
+
 
   void removeItem(String mealId){
 
@@ -46,10 +49,10 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
       title = routArgs['title']!;
       categoryId = routArgs['id']!;
 
-      displayMeal = DUMMY_MEALS.where((meal) {
+      displayMeal = widget.avaibaleList.where((meal) {
+        print(meal.title);
         return meal.categories.contains(categoryId);
       }).toList();
-
 
       loadFirstTime = true;
 
@@ -64,6 +67,7 @@ class _CategoryMealScreenState extends State<CategoryMealScreen> {
 
     return Scaffold(
         appBar: AppBar(title: Text(title)),
+        drawer: const MainDrawer(),
         body: ListView.builder(
           itemBuilder: (ctx, index) {
             return MealItem(
